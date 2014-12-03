@@ -1,0 +1,38 @@
+body {
+  background-image: url('super8.jpg');
+  background-size: cover;
+  background-position: 50% 8%;
+  background-color: gray;
+
+}
+
+a {
+ color: black;
+}
+
+ol {
+  margin: 17;
+}
+
+.page-header {
+  background-color: rgba(200,200,200,1);
+  font-family: Syncopate, arial;
+  color: #4E74B5;
+  padding-top: .5em;
+  margin-top: 0;
+}
+
+.results {
+  font-size: 30;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.searchform {
+  padding-top: 30;
+}
+
+.thesearch {
+  padding-top: 50;
+}
+

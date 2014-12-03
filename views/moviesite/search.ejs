@@ -1,0 +1,16 @@
+<% include header %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-sm-offset-1">
+      <div class="panel panel-primary">
+        <div class="panel-heading results">Los resultados de la búsqueda película</div>
+        <ol class="results">
+        <% for(var i=0; i<Search.length; i++) { %>
+        <li><a href="moviesite/<%=Search[i].imdbID%>"><%= Search[i].Title %></a></li>
+        <% } %>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+<% include footer %>

@@ -2,7 +2,6 @@ var express = require("express");
 var app = express();
 var bodyParser = require("body-parser");
 var request = require("request");
-var searchterm = "Twighlight";
 
 app.use(bodyParser.urlencoded({extended: false}))
 
@@ -21,7 +20,7 @@ app.get('/search',function(req, res){
 request('http://www.omdbapi.com/?s=' + req.query.pelicula, function (error, response, body) {
   if (!error && response.statusCode == 200) {
     var info = JSON.parse(body);
-    // res.send(info);
+    console.log(info);
     res.render("moviesite/search", info);
   }
 })
@@ -29,7 +28,7 @@ request('http://www.omdbapi.com/?s=' + req.query.pelicula, function (error, resp
 
 app.get('/moviesite/:imdbID', function(req, res){
   var ID = req.params.imdbID
-  request('http://www.omdbapi.com/?i=' + ID, function (error, response, body) {
+  request('http://www.omdbapi.com/?i=' + ID + '&plot=full', function (error, response, body) {
   if (!error && response.statusCode == 200) {
     var info = JSON.parse(body);
     console.log(info);

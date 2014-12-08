@@ -6,6 +6,10 @@ body {
 
 }
 
+img {
+  border: solid 2px;
+}
+
 .primernav {
   margin-top: 0;
   padding-top: -20;
@@ -13,6 +17,7 @@ body {
 
 .theinfo {
   font-family: arial;
+  text-transform: uppercase;
   font: black;
   font-weight: none;
 
@@ -28,10 +33,6 @@ h2 {
 
 a {
  color: black;
-}
-
-ol {
-  margin: ;
 }
 
 .page-header {

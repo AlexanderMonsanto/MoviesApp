@@ -1,0 +1,22 @@
+<% include header %>
+ <div class="panel panel-primary col-md-8 results">
+  <div class="panel-heading text-center theinfo">Sus Favoritas</div>
+  <ul>
+    <% for(var i = 0; i< Wishlist.length; i++){ %>
+    <li>
+      <a href="/moviesite/<%= Wishlist[i].movie_imbdID %>">
+      <%= Wishlist[i].movie_title %><br>
+      <%= Wishlist[i].movie_year %><br>
+      <%= Wishlist[i].movie_imbdID %><br>
+    </a>
+    <form role="form" action="/delete" method="post">
+      <input type="hidden"  name="movie_imbdID" value="<%= Wishlist[i].movie_imbdID %>">
+      <input type='submit' class="btn" value="eliminar">
+    </form>
+    </li>
+    <% } %>
+  </ul>
+</div>
+
+
+<% include footer %>

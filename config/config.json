@@ -1,0 +1,17 @@
+{
+  "development": {
+    "database": "wishlist",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "test": {
+    "database": "wishlist_database_test",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "production": {
+    "database": "wishlist_database_production",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  }
+}

@@ -14,19 +14,18 @@
   <div class="container-fluid navbar">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
+      <ul class="nav nav-pills">
+        <li role="presentation" class="active"><a type='submit' class='btn' href="/">Primer Pagina</a></li>
+        <li role="presentation"><a type='submit' class='btn' href="/search">Busqueda</a></li>
+        <li role="presentation"><a type='submit' class='btn' href="moviesite/favorites">Sus Favoritas</a></li>
+     </ul>
       <a class="navbar-brand" href="#">Peliculas Punto Com</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
         <form role="form" class="results searchform" action="/search" method="get">
         <input type="text" class="form-control text-center" placeholder="nombre de su pelicula" name="pelicula">
-        <input type="submit" class="btn"id="exampleInputEmail1" value="buscar" >
+        <input type="submit" class="btn"id="exampleInputEmail1" value="Buscar" >
         </form>
           </ul>
         </li>

@@ -6,6 +6,13 @@
     <img src="<%= Poster%>"><br>
   </div>
   <div class="panel panel-primary col-md-8 results">
+    <form role="form" class="fav form" action="/save" method="post">
+        <input type='submit' class='btn' value='Añandir a Favoritas'>
+        <input type='hidden' name="movie_title" value='<%= Title %>'>
+        <input type='hidden' name="movie_image" value='<%= Poster %>'>
+        <input type='hidden' name="movie_year" value='<%= Year %>'>
+        <input type='hidden' name="movie_imbdID" value='<%= imdbID %>'>
+    </form>
   <div class="panel-heading text-center theinfo">información de la pelicula</div>
       <h2>Titulo</h2><br>
       <%= Title %><br>

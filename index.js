@@ -11,8 +11,12 @@ app.use(express.static(__dirname + "/public"))
 app.set("view engine", 'ejs');
 
 app.get('/',function(req, res){
-  res.render('moviesite/index')
+  res.render('index')
 
+})
+
+app.get('/sobre',function(req, res){
+  res.render('sobre')
 })
 
 app.get('/search',function(req, res){
@@ -20,43 +24,60 @@ app.get('/search',function(req, res){
   if (!error && response.statusCode === 200) {
     var info = JSON.parse(body);
     console.log(info);
-    res.render("moviesite/search", info);
-  } else { res.send("Selecionar una pelicula")}
+    res.render("search", info || []);
+  }
 })
 })
 
-app.get('/moviesite/favorites',function(req, res){
+app.get('/favorites',function(req, res){
   db.Wishlist.findAll().done(function(err, data){
-    res.render('moviesite/favorites',{Wishlist:data})
+    res.render('favorites',{Wishlist:data})
   })
 })
 
-app.get('/moviesite/:imdbID', function(req, res){
+app.get('/:imdbID', function(req, res){
   var ID = req.params.imdbID
   request('http://www.omdbapi.com/?i=' + ID + '&plot=full', function (error, response, body) {
   if (!error && response.statusCode == 200) {
     var info = JSON.parse(body);
     console.log(info);
-    res.render("moviesite/imdb", info);
-  } else { alert:"Not a Movie"}
+    res.render("imdb", info);
+  }
 })
 })
 
-app.post('/save',function(req, res){
-  db.Wishlist.findOrCreate({where: req.body}).done(function (err, data, created){
-    res.render('moviesite/save',{'title':data.movie_title,'ID':data.movie_imbdID,'Poster':data.movie_image,'Year':data.movie_year});
-  })
-})
+// app.post('/save',function(req, res){
+//   db.Wishlist.findOrCreate({where: req.body}).then(function (err, data, created){
+//     res.redirect('/favorites');
+//   })
+// })
 
-app.post('/delete',function(req, res){
-  // res.send(req.body);
-  db.Wishlist.find({ where: {movie_imbdID: req.body.movie_imbdID }}).then(function(data){
-  data.destroy().success(function() {
-  // res.send(data);
-  // return;
-  res.redirect('/moviesite/favorites')
+  app.post('/favorites',function(req,res){
+    db.Wishlist.findOrCreate({where: req.body}).spread(function (data, created){
+      res.send({data:data,created:created});
+    })
   })
-})
+
+//Technically Incorrect Method of Deletion. Causes Issues with Backbone.js
+// app.post('/delete',function(req, res){
+//   db.Wishlist.find({ where: {movie_imbdID: req.body.movie_imbdID }}).then(function(data){
+//   data.destroy().success(function() {
+//   res.redirect('favorites')
+//   })
+// })
+// })
+
+app.delete('/favorites/:id',function(req, res){
+  // res.send(req.params);
+  db.Wishlist.find({ where: {id: req.params.id}}).then(function(data){
+    if (data){
+      data.destroy().success(function(deldata){
+        res.send({result:deldata})
+      })
+    }else{
+       res.send({result:false})
+    }
+  })
 })
 
 app.listen(process.env.PORT || 3000);

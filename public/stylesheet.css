@@ -3,36 +3,24 @@ body {
   background-size: cover;
   background-position: 50% 8%;
   background-color: gray;
-
 }
 
 img {
   border: solid 2px;
 }
 
-.primernav {
-  margin-top: 0;
-  padding-top: -20;
-}
-
-.theinfo {
-  font-family: arial;
-  text-transform: uppercase;
-  font: black;
-  font-weight: none;
-
-}
-
-h2 {
-  margin-bottom: -25;
+li {
+  list-style-type: none;
+  color: black;
 }
 
 .btn {
   margin: 10;
 }
 
-a {
+a.link {
  color: black;
+ text-decoration: none;
 }
 
 .page-header {
@@ -40,21 +28,12 @@ a {
   font-family: Syncopate, arial;
   color: #4E74B5;
   padding-top: .5em;
-  margin-top: 0;
 }
 
 .results {
-  font-size: 24;
+  font-size: 20;
   font-weight: normal;
-  margin-top: -10;
-  padding-top: 10;
+  color: black;
 }
 
-.searchform {
-  padding-top: 10;
-}
-
-.thesearch {
-  padding-top: ;
-}
 

@@ -9,7 +9,7 @@ $('.delete').on('click', function(event){
     url:'/favorites/' + deleteButton.data('id'),
     type: 'DELETE',
     success:function(data){
-      deleteButton.closest('li').fadeOut(2500);
+      deleteButton.closest('li').fadeOut(1500);
     }
   })
 })
@@ -23,8 +23,7 @@ $('.favsubmit').on('click', function(event){
     movie_image: addButton.data('image'),
     movie_imbdID: addButton.data('imbdid')
   },function(data){
-    alert('info added');
-    $('.favsubmit').fadeOut(2500);
+    $('.favsubmit').fadeOut(1500);
 
   })
 })

@@ -13,8 +13,6 @@ module.exports = function(sequelize, DataTypes) {
         }
       }
       },
-    },
-
     wishlistId: DataTypes.INTEGER
   }, {
     classMethods: {

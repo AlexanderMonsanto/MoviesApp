@@ -12,8 +12,8 @@ module.exports = function(sequelize, DataTypes) {
           msg: "Dangit! Your comment was not in between 20 and 200 characters"
         }
       }
-      }
-    },
+      },
+
 
     wishlistId: DataTypes.INTEGER
   }, {

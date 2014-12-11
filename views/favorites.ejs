@@ -3,16 +3,17 @@
   <div class="panel-heading"><h2>Sus Favoritas</h2></div>
   <div class="panel-body results">
   <ul>
-    <% for(var i = 0; i< Wishlist.length; i++){ %>
+    <% for(var i = 0; i< wishlist.length; i++){ %>
     <li>
-      <a href="/<%= Wishlist[i].movie_imbdID %>">
-      <%= Wishlist[i].movie_title %><br>
-      <%= Wishlist[i].movie_year %><br>
-      <%= Wishlist[i].movie_imbdID %><br>
+      <a href="/<%= wishlist[i].movie_imbdID %>">
+      <%= wishlist[i].movie_title %><br>
+      <%= wishlist[i].movie_year %><br>
+      <%= wishlist[i].movie_imbdID %><br>
     </a>
     <!-- <form style='display: inline' role="form" action="/delete" method="post"> -->
-      <!-- <input type="hidden"  name="movie_imbdID" value="<%= Wishlist[i].movie_imbdID %>"> -->
-      <input type='submit' data-id="<%= Wishlist[i].id %>" class="btn delete" style="display:inline" value="eliminar">
+      <!-- <input type="hidden"  name="movie_imbdID" value="<%= wishlist[i].movie_imbdID %>"> -->
+      <input type='submit' data-id="<%= wishlist[i].id %>" class="btn delete" style="display:inline" value="eliminar">
+      <a type='submit' href="/favorites/<%= wishlist[i].id %>/comments" class="btn comment" style="display:inline" value="comentar"><input type="submit" value="comentar" class="btn"></a>
     <!-- </form> -->
     </li>
     <% } %>

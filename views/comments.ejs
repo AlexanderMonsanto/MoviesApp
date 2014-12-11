@@ -1,0 +1,24 @@
+<% include header %>
+<% for(var i = 0; i< commentdata.length; i++){ %>
+    <li>
+      <%= commentdata[i].comment %><br>
+      <%= commentdata[i].wishlistId %><br>
+  </li>
+  <input type='submit' data-id="<%= commentdata[i].wishlistId %>" class="btn delete" style="display:inline" value="eliminar">
+  <% } %>
+<br>
+<br>
+<br>
+  <form role="form" class="results commentsform" action="/favorites/comment/save" method="post">
+        <input type="text" class="form-control text-center" placeholder="comentar sobre la pelicula" name="comment">
+        <input type="submit" class="btn" value="Enviar" >
+        <input type="hidden" class="" name="wishlistId" value="<%= movid %>">
+  </form>
+
+
+
+
+
+
+
+<% include footer %>

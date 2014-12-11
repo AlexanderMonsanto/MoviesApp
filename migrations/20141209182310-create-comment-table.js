@@ -1,23 +1,17 @@
 "use strict";
 module.exports = {
   up: function(migration, DataTypes, done) {
-    migration.createTable("wishlists", {
+    migration.createTable("comment_tables", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: DataTypes.INTEGER
       },
-      movie_title: {
-        type: DataTypes.STRING
+      comment: {
+        type: DataTypes.TEXT
       },
-      movie_image: {
-        type: DataTypes.STRING
-      },
-      movie_imbdID: {
-        type: DataTypes.STRING
-      },
-      movie_year: {
+      wishlistId: {
         type: DataTypes.INTEGER
       },
       createdAt: {
@@ -31,6 +25,6 @@ module.exports = {
     }).done(done);
   },
   down: function(migration, DataTypes, done) {
-    migration.dropTable("wishlists").done(done);
+    migration.dropTable("comment_tables").done(done);
   }
 };

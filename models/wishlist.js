@@ -1,7 +1,7 @@
 "use strict";
 
 module.exports = function(sequelize, DataTypes) {
-  var Wishlist = sequelize.define("Wishlist", {
+  var wishlist = sequelize.define("wishlist", {
     movie_title: DataTypes.STRING,
     movie_image: DataTypes.STRING,
     movie_imbdID: DataTypes.STRING,
@@ -9,10 +9,10 @@ module.exports = function(sequelize, DataTypes) {
   }, {
     classMethods: {
       associate: function(models) {
-        // associations can be defined here
+        models.wishlist.hasMany(models.comment_table)
       }
     }
   });
 
-  return Wishlist;
+  return wishlist;
 };
